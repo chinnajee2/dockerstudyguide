@@ -1,0 +1,12 @@
+#For Debian 9
+FROM debian:stretch-slim
+
+LABEL maintainer="NGINX Docker Maintainers <docker-maint@nginx.com>"
+RUN apt update
+RUN apt install -y nginx
+
+EXPOSE 80
+
+STOPSIGNAL SIGTERM
+
+CMD ["nginx", "-g", "daemon off;"]
